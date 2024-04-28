@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
 import user from "../data/user";
-import App from "../components/App";
+import App from "../components/App.js";
 
 test("renders without errors", () => {
   expect(() => render(<App />)).not.toThrow();
@@ -10,8 +10,11 @@ test("renders without errors", () => {
 
 test("renders the correct child components", () => {
   const { container } = render(<App />);
+  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
   expect(container.querySelector("nav")).toBeInTheDocument();
+  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
   expect(container.querySelector("#home")).toBeInTheDocument();
+  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
   expect(container.querySelector("#about")).toBeInTheDocument();
 });
 
